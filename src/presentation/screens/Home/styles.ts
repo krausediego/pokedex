@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
-  flex: 1;
-  gap: 100px;
+const Container = styled.SafeAreaView`
   justify-content: center;
   align-items: center;
 `;
