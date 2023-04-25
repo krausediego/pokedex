@@ -1,0 +1,88 @@
+{
+    "env": {
+      "es6": true
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "react-hooks",
+      "@typescript-eslint",
+      "prettier",
+      "import-helpers"
+    ],
+    "rules": {
+      "react/jsx-closing-bracket-location": [
+        1,
+        { "selfClosing": "tag-aligned", "nonEmpty": "after-props" }
+      ],
+      "react/no-unused-prop-types": [0],
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ],
+      "react/jsx-one-expression-per-line": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "react/require-default-props": "off",
+      "no-useless-constructor": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-namespace": "off",
+      "no-unused-expressions": "warn",
+      "@typescript-eslint/no-empty-interface": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+      "import/prefer-default-export": "off",
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          "newlinesBetween": "always", // new line between groups
+          "groups": [
+            "/^react/",
+            "module",
+            "/^src/",
+            ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": true }
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
+  }
