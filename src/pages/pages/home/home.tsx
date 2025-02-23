@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { Pokemon } from "./pokemon";
 
 export function HomePage() {
-  const [offset, setOffset] = useState(0);
+  const [offset] = useState(0);
 
   const { data } = useQuery({
     queryFn: () => getAllPokemons({ offset }),
