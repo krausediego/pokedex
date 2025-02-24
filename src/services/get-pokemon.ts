@@ -1,8 +1,18 @@
 import { api } from "@/lib/axios";
 import { types } from "@/utils/types-colors";
+import { stats } from "@/pages/pages/home/details";
 
 interface GetPokemonRequest {
   name: string;
+}
+
+export interface StatTypes {
+  hp: string;
+  attack: string;
+  defense: string;
+  "special-attack": string;
+  "special-defense": string;
+  speed: string;
 }
 
 export interface GetPokemonResponse {
@@ -32,6 +42,12 @@ export interface GetPokemonResponse {
   abilities: {
     ability: {
       name: string;
+    };
+  }[];
+  stats: {
+    base_stat: number;
+    stat: {
+      name: keyof typeof stats;
     };
   }[];
 }
