@@ -2,10 +2,9 @@ import { api } from "@/lib/axios";
 
 interface GetAllPokemonsRequest {
   offset: number;
-  limit?: number;
 }
 
-interface GerAllPokemonsResponse {
+export interface GetAllPokemonsResponse {
   count: number;
   next: string;
   previous: string;
@@ -15,13 +14,10 @@ interface GerAllPokemonsResponse {
   }[];
 }
 
-export async function getAllPokemons({
-  offset,
-  limit = 21,
-}: GetAllPokemonsRequest) {
-  const response = await api.get<GerAllPokemonsResponse>(
-    `/pokemon/?offset=${offset}&limit=${limit}`
+export async function getAllPokemons({ offset }: GetAllPokemonsRequest) {
+  const response = await api.get<GetAllPokemonsResponse>(
+    `/pokemon/?offset=${offset}&limit=24`,
   );
 
-  return response.data;
+  return response.data.results;
 }
