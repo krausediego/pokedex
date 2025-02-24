@@ -11,6 +11,24 @@ interface DetailsProps {
   name: string;
 }
 
+export const stats = {
+  hp: "HP",
+  attack: "ATK",
+  defense: "DEF",
+  "special-attack": "SpA",
+  "special-defense": "SpD",
+  speed: "SPD",
+};
+
+const statsColors = {
+  hp: "bg-[#DF2140]",
+  attack: "bg-[#FF994D]",
+  defense: "bg-[#EECD3D]",
+  "special-attack": "bg-[#85DDFF]",
+  "special-defense": "bg-[#96DA83]",
+  speed: "bg-[#FB94A8]",
+};
+
 export function Details({ name }: DetailsProps) {
   const queryClient = useQueryClient();
 
@@ -89,6 +107,25 @@ export function Details({ name }: DetailsProps) {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="grid grid-cols-6 gap-3">
+        <span className="col-span-6 text-center font-bold">Stats</span>
+        {pokemon.stats.map((stat) => (
+          <div className="flex flex-col items-center justify-center gap-2 rounded-full bg-border px-1.5 py-2">
+            <div
+              className={cn(
+                "flex aspect-square w-full items-center justify-center rounded-full p-1.5",
+                statsColors[stat.stat.name],
+              )}
+            >
+              <span className="text-xs font-bold text-muted">
+                {stats[stat.stat.name]}
+              </span>
+            </div>
+            <span className="font-bold">{stat.base_stat}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
